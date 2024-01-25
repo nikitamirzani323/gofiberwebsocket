@@ -19,7 +19,7 @@ type Server struct {
 func handleWSOrderBook(s *Server) func(ws *websocket.Conn) {
 	return func(ws *websocket.Conn) {
 		fmt.Println("New incoming connection from client to orderbook feed:", ws.RemoteAddr())
-
+		//utils.UUIDv4()
 		for {
 			payload := fmt.Sprintf("orderbook data -> %d\n", time.Now().UnixNano())
 			ws.WriteJSON(payload)
